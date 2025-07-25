@@ -7,11 +7,11 @@ import { MenuSelectionProvider } from "@/context/MenuSelectionContext";
 
 // Sample business info - this would come from a config file later
 const businessInfo = {
-  name: "Hyderabadi Flavors Catering",
+  name: "ARK Events",
   logo: "",
   contact: {
-    phone: "+91 98765 43210",
-    email: "info@hyderabadiflavors.com",
+    phone: "+91 88018 86108",
+    email: "info@arkevents.com",
     address: "Banjara Hills, Hyderabad, Telangana 500034"
   },
   branding: {
@@ -26,7 +26,7 @@ function App() {
       <Layout businessInfo={businessInfo}>
         <HeroSection 
           businessName={businessInfo.name}
-          tagline="Creating unforgettable culinary experiences for your special events"
+          tagline="Premium event catering services with authentic South Indian and Hyderabadi cuisine"
         />
         
         {/* Development status section */}
