@@ -18,6 +18,9 @@ export function MobileCategoryNav({ selectedCategoryId, onCategorySelect }: Mobi
   const constraintsRef = useRef<HTMLDivElement>(null);
   const x = useMotionValue(0);
   
+  // Move useTransform to top level to avoid conditional hook usage
+  const xTransform = useTransform(x, (value) => `${value}%`);
+  
   const itemsPerView = 2.5; // Show 2.5 items at a time on mobile
   const itemWidth = 100 / itemsPerView; // Percentage width per item
 
@@ -76,7 +79,7 @@ export function MobileCategoryNav({ selectedCategoryId, onCategorySelect }: Mobi
         <div ref={constraintsRef} className="flex-1 overflow-hidden">
           <motion.div
             className="flex"
-            style={{ x: useTransform(x, (value) => `${value}%`) }}
+            style={{ x: xTransform }}
             drag="x"
             dragConstraints={constraintsRef}
             dragElastic={0.1}

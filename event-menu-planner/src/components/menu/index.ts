@@ -8,3 +8,7 @@ export { MobileCategoryNav } from "./MobileCategoryNav";
 export { MobileMenuItem } from "./MobileMenuItem";
 export { ResponsiveMenuLayout } from "./ResponsiveMenuLayout";
 export { MenuDataTest } from "./MenuDataTest";
+export { ButtaFoodMenu } from "./ButtaFoodMenu";
+export { ButtaCart } from "./ButtaCart";
+export { ButtaMenuPreview } from "./ButtaMenuPreview";
+export { CustomerInfoModal } from "./CustomerInfoModal";

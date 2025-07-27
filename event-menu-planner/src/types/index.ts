@@ -8,6 +8,10 @@ export interface MenuItem {
   dietaryRestrictions?: string[];
   specialNotes?: string;
   available: boolean;
+  packageType?: 'standard' | 'choose-any' | 'addon';
+  maxSelections?: number; // For "choose any X" items
+  servingTime?: string; // e.g., "1hr"
+  isAddon?: boolean;
 }
 
 export interface MenuCategory {
@@ -22,6 +26,8 @@ export interface MenuSelection {
   item: MenuItem;
   quantity: number;
   notes?: string;
+  isAddon?: boolean;
+  packageGroup?: string; // For grouping "choose any X" items
 }
 
 export interface BusinessInfo {

@@ -1,8 +1,10 @@
+import { useState } from "react";
 import { Layout, HeroSection, Container } from "@/components/layout";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
 import { MenuSection, MenuDataTest } from "@/components/menu";
+import { ButtaFoodMenu } from "@/components/menu/ButtaFoodMenu";
 import { MenuSelectionProvider } from "@/context/MenuSelectionContext";
 
 // Sample business info - this would come from a config file later
@@ -20,7 +22,22 @@ const businessInfo = {
   }
 };
 
+type PageType = 'home' | 'butta-menu';
+
 function App() {
+  const [currentPage, setCurrentPage] = useState<PageType>('home');
+
+  if (currentPage === 'butta-menu') {
+    return (
+      <MenuSelectionProvider>
+        <ButtaFoodMenu 
+          businessInfo={businessInfo} 
+          onNavigateBack={() => setCurrentPage('home')}
+        />
+      </MenuSelectionProvider>
+    );
+  }
+
   return (
     <MenuSelectionProvider>
       <Layout businessInfo={businessInfo}>
@@ -106,8 +123,11 @@ function App() {
               </Card>
             </div>
 
-            <div className="text-center mt-12">
-              <Button size="lg" className="px-8">
+            <div className="text-center mt-12 space-x-4">
+              <Button size="lg" className="px-8" onClick={() => setCurrentPage('butta-menu')}>
+                View Butta Food Menu →
+              </Button>
+              <Button size="lg" variant="outline" className="px-8">
                 Continue to Next Task →
               </Button>
             </div>
